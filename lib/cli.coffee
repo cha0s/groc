@@ -223,6 +223,8 @@ module.exports = CLI = (inputArgs, callback) ->
 
   # Good to go!
   unless argv.github
+    project.githubURL = argv['repository-url']
+
     project.generate options, (error) ->
       callback error
 
