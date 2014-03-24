@@ -79,9 +79,11 @@ module.exports = class Base
         segment.highlightedCode    = Utils.trimBlankLines segment.highlightedCode
         segment.foldMarker         = Utils.trimBlankLines(segment.foldMarker || '')
 
+      hasCode = segments.filter((seg) -> seg.code.length > 0).length > 0
       templateContext =
         project:     @project
         segments:    segments
+        hasCode:     hasCode
         pageTitle:   fileInfo.pageTitle
         sourcePath:  fileInfo.sourcePath
         targetPath:  fileInfo.targetPath
